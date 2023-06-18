@@ -1,0 +1,49 @@
+*) Create a class named “Book” with properties such as title, author, publisher, and price. Add getter and setter methods for each property. Also, add a method to calculate the discount price of the book based on a given percentage.
+
+class Book {
+  String _title;
+  String _author;
+  String _publisher;
+  double _price;
+
+  // Getter and setter for title
+  String get title => _title;
+  set title(String value) => _title = value;
+
+  // Getter and setter for author
+  String get author => _author;
+  set author(String value) => _author = value;
+
+  // Getter and setter for publisher
+  String get publisher => _publisher;
+  set publisher(String value) => _publisher = value;
+
+  // Getter and setter for price
+  double get price => _price;
+  set price(double value) => _price = value;
+
+  // Method to calculate the discount price based on a given percentage
+  double calculateDiscountPrice(double percentage) {
+    if (percentage >= 0 && percentage <= 100) {
+      double discount = _price * (percentage / 100);
+      return _price - discount;
+    } else {
+      throw ArgumentError('Percentage should be between 0 and 100.');
+    }
+  }
+}
+
+void main() {
+  Book myBook = Book();
+  myBook.title = 'The Great Gatsby';
+  myBook.author = 'F. Scott Fitzgerald';
+  myBook.publisher = 'Scribner';
+  myBook.price = 15.99;
+
+  print('Title: ${myBook.title}');
+  print('Author: ${myBook.author}');
+  print('Publisher: ${myBook.publisher}');
+  print('Price: \$${myBook.price}');
+  print('Discounted Price (20% off): \$${myBook.calculateDiscountPrice(20)}');
+}
+
