@@ -1,0 +1,16 @@
+Write a program that takes a string as input and checks if it is a palindrome. A palindrome is a string that reads the same forwards and backwards. For example, “racecar” is a palindrome.
+ 
+  bool isPalindrome(String input) {
+  String reversed = input.split('').reversed.join('');
+  return input == reversed;
+}
+
+void main() {
+  String userInput = 'racecar';
+
+  if (isPalindrome(userInput)) {
+    print('$userInput is a palindrome.');
+  } else {
+    print('$userInput is not a palindrome.');
+  }
+}
