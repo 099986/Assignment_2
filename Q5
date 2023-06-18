@@ -1,0 +1,56 @@
+Create a class named “Bank” with a list of BankAccount objects as a property. Add a method to add a new bank account to the list, and another method to remove a bank account from the list. Also, add a method to find the bank account with the highest balance.
+
+class BankAccount {
+  String accountNumber;
+  double balance;
+
+  BankAccount(this.accountNumber, this.balance);
+}
+
+class Bank {
+  List<BankAccount> accounts = [];
+
+  // Method to add a new bank account to the list
+  void addBankAccount(BankAccount account) {
+    accounts.add(account);
+  }
+
+  // Method to remove a bank account from the list
+  void removeBankAccount(BankAccount account) {
+    accounts.remove(account);
+  }
+
+  // Method to find the bank account with the highest balance
+  BankAccount findHighestBalance() {
+    if (accounts.isEmpty) {
+      throw StateError('No bank accounts found.');
+    }
+
+    BankAccount highestBalanceAccount = accounts[0];
+    for (var i = 1; i < accounts.length; i++) {
+      if (accounts[i].balance > highestBalanceAccount.balance) {
+        highestBalanceAccount = accounts[i];
+      }
+    }
+
+    return highestBalanceAccount;
+  }
+}
+
+void main() {
+  Bank myBank = Bank();
+
+  BankAccount account1 = BankAccount('A001', 1000.0);
+  BankAccount account2 = BankAccount('A002', 2000.0);
+  BankAccount account3 = BankAccount('A003', 1500.0);
+
+  myBank.addBankAccount(account1);
+  myBank.addBankAccount(account2);
+  myBank.addBankAccount(account3);
+
+  BankAccount highestBalanceAccount = myBank.findHighestBalance();
+
+  print('Bank Account with the Highest Balance:');
+  print('Account Number: ${highestBalanceAccount.accountNumber}');
+  print('Balance: \$${highestBalanceAccount.balance}');
+}
