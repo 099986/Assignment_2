@@ -1,0 +1,32 @@
+*) Create a class named “Circle” with properties such as radius. Add getter and setter methods for the radius property. Also, add a method to calculate the circumference of the circle.
+
+import 'dart:math';
+
+class Circle {
+  double _radius;
+
+  // Getter for radius
+  double get radius => _radius;
+
+  // Setter for radius
+  set radius(double value) {
+    if (value >= 0) {
+      _radius = value;
+    } else {
+      throw ArgumentError('Radius cannot be negative.');
+    }
+  }
+
+  // Method to calculate the circumference
+  double calculateCircumference() {
+    return 2 * pi * _radius;
+  }
+}
+
+void main() {
+  Circle myCircle = Circle();
+  myCircle.radius = 5.0; // Set the radius using the setter
+
+  print('Radius: ${myCircle.radius}');
+  print('Circumference: ${myCircle.calculateCircumference()}');
+}
