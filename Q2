@@ -1,0 +1,48 @@
+*) Create a class named “Student” with properties such as name, age, major, and GPA. Add getter and setter methods for each property. Also, add a method to calculate the student’s grade level based on their age.
+
+class Student {
+  String _name;
+  int _age;
+  String _major;
+  double _gpa;
+
+  // Getter and setter for name
+  String get name => _name;
+  set name(String value) => _name = value;
+
+  // Getter and setter for age
+  int get age => _age;
+  set age(int value) => _age = value;
+
+  // Getter and setter for major
+  String get major => _major;
+  set major(String value) => _major = value;
+
+  // Getter and setter for GPA
+  double get gpa => _gpa;
+  set gpa(double value) => _gpa = value;
+
+  // Method to calculate grade level based on age
+  String calculateGradeLevel() {
+    if (_age >= 18) {
+      int grade = (_age - 5) ~/ 5; // Assuming each grade level is 5 years
+      return 'Grade ${grade + 1}';
+    } else {
+      return 'Not in school yet';
+    }
+  }
+}
+
+void main() {
+  Student myStudent = Student();
+  myStudent.name = 'John Doe';
+  myStudent.age = 20;
+  myStudent.major = 'Computer Science';
+  myStudent.gpa = 3.8;
+
+  print('Name: ${myStudent.name}');
+  print('Age: ${myStudent.age}');
+  print('Major: ${myStudent.major}');
+  print('GPA: ${myStudent.gpa}');
+  print('Grade Level: ${myStudent.calculateGradeLevel()}');
+}
